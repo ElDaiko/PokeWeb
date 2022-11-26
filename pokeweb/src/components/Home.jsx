@@ -32,7 +32,6 @@ const Home = ({ pokeObj }) => {
                 </div>
             </div>
         </div>
-
     );
 }
 

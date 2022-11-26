@@ -14,10 +14,18 @@ body {
 	text-decoration: none;
 }
 
-
+.flex{
+	margin-top: 2%;
+	display: inline-block;
+	width: auto;
+}
 
 .pc-container {
-	margin: 20px;
+	float: left;
+	margin: 20px;	
+	width: auto;
+	margin-left: 1.5%;
+	margin-bottom: 2%
 }
 
 .pokemon-card {
