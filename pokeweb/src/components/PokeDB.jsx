@@ -4,6 +4,14 @@ import { useEffect, useState } from 'react';
 import Home from './Home';
 
 
+const Generations = ({name}) => {
+
+    return(
+        <div className="generation"><li>{name}</li></div>
+    )
+}
+
+
 const PokeDB = () => {
 
     const [nombre, setNombre] = useState('charizard')
@@ -17,8 +25,8 @@ const PokeDB = () => {
         ["Sinnoh", 387, 493],
         ["Unova", 494, 649],
         ["Kalos", 650, 721],
-        ["Alola", 722, 805],
-        ["Galar", 806, 905]
+        ["Alola", 722, 809],
+        ["Galar", 810, 905]
     ];
 
     /* const getPokemon = async () => {
@@ -53,7 +61,7 @@ const PokeDB = () => {
 
     return (
         <div className='flex'>
-            {pokedex.map(entry => (typeof entry) == "string" ? <h2 key={entry}>{entry}</h2> : <Home pokeObj={entry} key={entry.id} />)} 
+            {pokedex.map(entry => (typeof entry) == "string" ? <Generations name={entry} key={entry}/> : <Home pokeObj={entry} key={entry.id} />)} 
         </div>
     );
 
