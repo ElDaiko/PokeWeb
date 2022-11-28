@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Companion from "./components/Companion"
+import Page from "./components/Page"
 import Pokedex from "./components/Pokedex"
 import PokeDB from "./components/PokeDB";
 
@@ -19,15 +19,11 @@ function App() {
       <Routes>
         <Route path="/"
         element={
-          <PokeDB/>
-        }/>
-        <Route path="/companion"
-        element={
-          <p>hi</p>
+          <Page/>
         }/>
         <Route path="/pokedex"
         element={
-          <Pokedex/>
+          <PokeDB/>
         }/>
         <Route path="/signin"
         element={

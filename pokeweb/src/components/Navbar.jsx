@@ -19,9 +19,6 @@ const Navbar = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="mailto:mirole16@gmail.com?Subject=I have some questions!">Contact</a>
                         </li>
-                        <Link to="/companion"  className='navmargin'>
-                            <h2 className="nav-link navMargin">Companions</h2>
-                        </Link>
                         <Link to="/signin"  className='navmargin'>
                             <h2 className="nav-link navMargin">Sign in</h2>
                         </Link>
