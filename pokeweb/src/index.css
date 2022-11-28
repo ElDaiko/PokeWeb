@@ -14,7 +14,7 @@ body {
 	text-decoration: none;
 }
 
-.flex{
+.flex {
 	margin-top: 2%;
 	display: inline-block;
 	width: auto;
@@ -22,7 +22,7 @@ body {
 
 .pc-container {
 	float: left;
-	margin: 20px;	
+	margin: 20px;
 	width: auto;
 	margin-left: 1.5%;
 	margin-bottom: 2%
@@ -122,7 +122,7 @@ img {
 	background: rgba(0, 0, 0, 0.2);
 }
 
-button{
+button {
 	background: none;
 	color: inherit;
 	border: none;
@@ -132,12 +132,12 @@ button{
 	outline: inherit;
 }
 
-.poke-img{
+.poke-img {
 	margin-top: 10%;
 	width: 70%;
 }
 
-.pokedex-img{
+.pokedex-img {
 	margin-left: 90%;
 	width: 10%;
 
@@ -146,9 +146,9 @@ button{
 @font-face {
 	font-family: pokemon;
 	src: url(font/Pokemon\ Solid.ttf);
-  }
+}
 
-.generation{
+.generation {
 	font-family: pokemon;
 	font-size: 200%;
 	padding-left: 80px;
@@ -161,15 +161,15 @@ button{
 	margin-left: -4em;
 	margin-top: 15%;
 }
-  
-.text-loader{
+
+.text-loader {
 	font-family: pokemon;
 	font-size: 50px;
 	color: black;
 	text-align: center;
 }
 
-.poke-style{
+.poke-style {
 	font-family: pokemon;
 	font-size: 50px;
 	color: black;
@@ -178,7 +178,15 @@ button{
 	margin-bottom: 4%;
 }
 
-.search{
-	width: 100px;
-	height: 100px;
+.search {
+	border-radius: 100px;
+	width: 25%;
+	text-align: center;
+	margin-bottom: 2%;
+	margin-left: -2%;
+}
+
+.poke {
+	margin-left: 42%;
+	margin-top: 10%;	
 }

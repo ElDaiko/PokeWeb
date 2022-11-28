@@ -34,16 +34,16 @@ const Page = () => {
 
     return (
 
-        <div>
+        <div className="poke">
             <form onSubmit={onSubmit}>
                 <input
-                    placeholder="Search"
+                    placeholder="Press enter to search"
                     className="search"
                     value={name.toLocaleLowerCase()}
                     onChange={handleChange}
                 />
-                <button className='btn' type="submit" >Search</button>
-            </form>
+                <button type="submit"></button>
+            </form>  
             {poke.id ? <Home pokeObj={poke} key={poke.id} /> : null}
         </div>
 
