@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Page from "./components/Page"
 import Pokedex from "./components/Pokedex"
 import PokeDB from "./components/PokeDB";
+import Api from "./components/Api";
 
 import {
   BrowserRouter as Router,
@@ -27,7 +28,7 @@ function App() {
         }/>
         <Route path="/signin"
         element={
-          <Signin/>
+          <Api/>
         }/>
       </Routes>
     </Router>

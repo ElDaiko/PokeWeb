@@ -4,7 +4,7 @@ import ball from '../img/ball.png';
 
 const Home = ({ pokeObj }) => {
 
-    const spriteUrl = pokeObj.sprites.other["official-artwork"].front_default;
+    const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeObj.id}.png`;
 
     const pokemonTypes = []
     pokeObj.types.forEach((item) => {
