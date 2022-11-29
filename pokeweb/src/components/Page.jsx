@@ -1,14 +1,19 @@
 import React from 'react';
 import Home from './Home';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import BounceLoader from "react-spinners/BounceLoader";
 import PokeDB from './PokeDB';
+import { useContext, useEffect,useState } from 'react';
+import { userContext } from './context/userContext';
+import UsePoke from '../hooks/usePoke';
 
 const Page = () => {
 
+    
     const [poke, setPoke] = useState("");
     const [name, setName] = useState("");
+    const [pokeContext, setPokeContext] = useContext(userContext)
+    const {requestCompanion, idPoke} = UsePoke(pokeContext);
 
 
     const getPokemon = async (name) => {
@@ -21,6 +26,10 @@ const Page = () => {
         }
     }
 
+    useEffect(() => {
+        requestCompanion(pokeContext)
+    }, []);
+
     const handleChange = e => {
         setName(e.target.value);
     }
@@ -29,8 +38,6 @@ const Page = () => {
         e.preventDefault();
         getPokemon(name)
     }
-
-    console.log(poke.id);
 
     return (
 
@@ -44,7 +51,7 @@ const Page = () => {
                 />
                 <button type="submit"></button>
             </form>  
-            {poke.id ? <Home pokeObj={poke} key={poke.id} /> : null}
+            {poke.id ? <Home pokeObj={poke} key={poke.id} idPoke={idPoke}/> : null}
         </div>
 
     );

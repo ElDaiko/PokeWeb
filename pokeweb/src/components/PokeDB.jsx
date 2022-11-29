@@ -5,6 +5,7 @@ import BounceLoader from "react-spinners/BounceLoader";
 import Page from './Page'; 
 import { useContext, useEffect,useState } from 'react';
 import { userContext } from './context/userContext';
+import UsePoke from '../hooks/usePoke';
 
 const Generations = ({ name }) => {
 
@@ -17,11 +18,9 @@ const Generations = ({ name }) => {
 const PokeDB = () => {
 
     const [name, setName] = useContext(userContext)
-    const [idPoke, setIdPoke] = useState([])
     const [loading, setLoading] = useState(true);
-    const [nombre, setNombre] = useState('charizard')
-    const [pokemon, setPokemon] = useState({})
     const [pokedex, setPokedex] = useState(0)
+    const {requestCompanion, idPoke} = UsePoke(name);
 
     const generations = [
         ["Kanto", 1, 151],
@@ -47,18 +46,6 @@ const PokeDB = () => {
             }
             setPokedex(entries);
         }
-    }
-
-    const requestCompanion = async (emailUser) => {
-
-        const body = {
-            emailUser
-        }
-
-        const url = `http://localhost:5103/api/PokeWeb/api/requestCompanion`
-        const respuesta = await axios.post(url, body)
-        
-        setIdPoke(respuesta.data.idCompanion);
     }
 
     useEffect(() => {
