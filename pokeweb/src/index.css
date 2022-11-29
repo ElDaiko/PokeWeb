@@ -70,6 +70,26 @@ body {
 	/* transform-style: preserve-3d; */
 }
 
+.card_front2 {
+	position: absolute;
+
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 20px;
+	border: 4px solid #fff;
+	backface-visibility: hidden;
+	background-color: rgb(193, 120, 120);
+	/* transform-style: preserve-3d; */
+}
+
 .card_back {
 	transform: rotateY(0.5turn);
 	background-color: #464646;

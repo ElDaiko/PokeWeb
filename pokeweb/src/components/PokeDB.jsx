@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React from 'react';
-import { useEffect, useState } from 'react';
 import Home from './Home';
 import BounceLoader from "react-spinners/BounceLoader";
-import Page from './Page';
-
-
+import Page from './Page'; 
+import { useContext, useEffect,useState } from 'react';
+import { userContext } from './context/userContext';
 
 const Generations = ({ name }) => {
 
@@ -17,6 +16,8 @@ const Generations = ({ name }) => {
 
 const PokeDB = () => {
 
+    const [name, setName] = useContext(userContext)
+    const [idPoke, setIdPoke] = useState([])
     const [loading, setLoading] = useState(true);
     const [nombre, setNombre] = useState('charizard')
     const [pokemon, setPokemon] = useState({})
@@ -48,6 +49,22 @@ const PokeDB = () => {
         }
     }
 
+    const requestCompanion = async (emailUser) => {
+
+        const body = {
+            emailUser
+        }
+
+        const url = `http://localhost:5103/api/PokeWeb/api/requestCompanion`
+        const respuesta = await axios.post(url, body)
+        
+        setIdPoke(respuesta.data.idCompanion);
+    }
+
+    useEffect(() => {
+        requestCompanion(name)
+    }, []);
+
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
@@ -55,6 +72,8 @@ const PokeDB = () => {
         }, 5000)
         getPokedex()
     }, []);
+
+    console.log(idPoke);
 
     if (!pokedex[0]) return null;
 
@@ -70,7 +89,7 @@ const PokeDB = () => {
                     :
                     <div className='flex'>
                         <div className="poke-style">Pokedex</div>
-                        {pokedex.map(entry => (typeof entry) == "string" ? <Generations name={entry} key={entry} /> : <Home pokeObj={entry} key={entry.id} />)}
+                        {pokedex.map(entry => (typeof entry) == "string" ? <Generations name={entry} key={entry} /> : <Home pokeObj={entry} key={entry.id} idPoke={idPoke} />)}
                     </div>
 
             }

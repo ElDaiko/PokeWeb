@@ -2,9 +2,13 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import {TbPokeball} from 'react-icons/tb';
 import pokedex from '../img/pokedex.png'
-
+import { useContext } from 'react';
+import { userContext } from './context/userContext';
 
 const Navbar = () => {
+
+    const [name, setName] = useContext(userContext)
+
     return (
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
             <div className="container-fluid">
@@ -24,6 +28,7 @@ const Navbar = () => {
                         </Link>
                     </ul>
                     <ul className="navbar-nav">
+                        <p>{name}</p>
                         <Link to="/pokedex" className='routerLink'>
                             <h1 className=" navMargin"><img className="pokedex-img" src={pokedex}/></h1>
                         </Link>
