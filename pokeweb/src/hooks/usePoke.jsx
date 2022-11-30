@@ -18,8 +18,6 @@ const UsePoke = (emailUser) => {
         const respuesta = await axios.post(url, body)
         
         setIdPoke(respuesta.data.idCompanion);
-
-        console.log(emailUser);
     }
         
     return (

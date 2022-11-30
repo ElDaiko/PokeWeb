@@ -185,14 +185,16 @@ button {
 .text-loader {
 	font-family: pokemon;
 	font-size: 50px;
-	color: black;
+	color: white;
+	text-shadow: 0 0 40px rgb(0, 0, 0);
 	text-align: center;
 }
 
 .poke-style {
 	font-family: pokemon;
 	font-size: 50px;
-	color: black;
+	color: white;
+	text-shadow: 0 0 40px rgb(0, 0, 0);
 	text-align: center;
 	font-size: 300%;
 	margin-bottom: 4%;
@@ -209,4 +211,33 @@ button {
 .poke {
 	margin-left: 42%;
 	margin-top: 10%;	
+}
+
+.search-container{
+	margin-left: 43%;
+}
+
+.search{
+	width: 24%;
+	border-radius: 100px;
+	margin-bottom: 1%;
+}
+
+.btnlog{
+	width: 19%
+}
+
+.btnregist{
+	margin-top: 1%;
+	width: 11%;
+}
+.log-container{
+	margin-top: 4%;
+	margin-bottom: 22%
+}
+
+.gotta{
+	margin-top: 4%;
+	margin-bottom: -6%;
+	margin-right: 3%;
 }

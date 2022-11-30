@@ -1,13 +1,13 @@
 import React from 'react';
-import Home from './Home';
+import Card from './Card';
 import axios from 'axios';
 import BounceLoader from "react-spinners/BounceLoader";
-import PokeDB from './PokeDB';
+import PokeDB from './Pokedex';
 import { useContext, useEffect,useState } from 'react';
 import { userContext } from './context/userContext';
 import UsePoke from '../hooks/usePoke';
 
-const Page = () => {
+const Search = () => {
 
     
     const [poke, setPoke] = useState("");
@@ -40,7 +40,8 @@ const Page = () => {
     }
 
     return (
-
+        <>
+        <h1 className="poke-style gotta">Gotta catch 'em all!</h1>
         <div className="poke">
             <form onSubmit={onSubmit}>
                 <input
@@ -51,10 +52,12 @@ const Page = () => {
                 />
                 <button type="submit"></button>
             </form>  
-            {poke.id ? <Home pokeObj={poke} key={poke.id} idPoke={idPoke}/> : null}
+            {poke.id ? <Card pokeObj={poke} key={poke.id} idPoke={idPoke}/> : null}
         </div>
+        </>
+        
 
     );
 }
 
-export default Page;
+export default Search;

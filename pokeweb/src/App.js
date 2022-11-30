@@ -1,9 +1,8 @@
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Page from "./components/Page"
-import Pokedex from "./components/Pokedex"
-import PokeDB from "./components/PokeDB";
-import Api from "./components/Api";
+import Card from "./components/Card";
+import Search from "./components/Search"
+import Pokedex from "./components/Pokedex";
+import Login from "./components/Login";
 import UserContext from "./components/context/userContext";
 import { useState } from "react";
 
@@ -12,7 +11,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Signin from "./components/Signin";
 
 
 
@@ -25,15 +23,15 @@ function App() {
         <Routes>
           <Route path="/"
             element={
-              <Page />
+              <Search />
             } />
           <Route path="/pokedex"
             element={
-              <PokeDB />
+              <Pokedex />
             } />
           <Route path="/signin"
             element={
-              <Api />
+              <Login />
             } />
         </Routes>
       </Router>

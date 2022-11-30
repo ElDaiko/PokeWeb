@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {TbPokeball} from 'react-icons/tb';
+import { TbPokeball } from 'react-icons/tb';
 import pokedex from '../img/pokedex.png'
 import { useContext } from 'react';
 import { userContext } from './context/userContext';
@@ -23,14 +23,24 @@ const Navbar = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="mailto:mirole16@gmail.com?Subject=I have some questions!">Contact</a>
                         </li>
-                        <Link to="/signin"  className='navmargin'>
-                            <h2 className="nav-link navMargin">Sign in</h2>
-                        </Link>
+                        {name ?
+                            <>
+                                <li className='navmargin Link'>
+                                    <h2 className="nav-link navMargin">{name}</h2>
+                                </li>
+                                <Link className='navmargin'>
+                                    <h2 onClick={() => setName("")} className="nav-link navMargin">LogOut</h2>
+                                </Link>
+                            </>
+                            :
+                            <Link to="/signin" className='navmargin'>
+                                <h2 className="nav-link navMargin">Sign in</h2>
+                            </Link>
+                        }
                     </ul>
                     <ul className="navbar-nav">
-                        <p>{name}</p>
                         <Link to="/pokedex" className='routerLink'>
-                            <h1 className=" navMargin"><img className="pokedex-img" src={pokedex}/></h1>
+                            <h1 className=" navMargin"><img className="pokedex-img" src={pokedex} /></h1>
                         </Link>
                     </ul>
                 </div>

@@ -1,12 +1,37 @@
 import React from 'react';
-import PokeDB from './PokeDB';
+import PokeDB from './Pokedex';
 import ball from '../img/ball.png';
 import { useContext, useEffect,useState } from 'react';
 import { userContext } from './context/userContext';
 import axios from 'axios';
 import {useLocation } from 'react-router-dom';
 
-const Home = ({ pokeObj, idPoke=[] }) => {
+const Card = ({ pokeObj, idPoke=[] }) => {
+
+    const colors = {
+        grass: "#d2f2c2",
+        poison: "#f7cdf7",
+        fire: "#ffd1b5",
+        flying: "#eae3ff",
+        water: "#c2f3ff",
+        bug: "#e0e8a2",
+        normal: "#e6e6c3",
+        electric: "#fff1ba",
+        ground: "#e0ccb1",
+        fighting: "#fcada9",
+        psychic: "#ffc9da",
+        rock: "#f0e09c",
+        fairy: "#ffdee5",
+        steel: "#e6eaf0",
+        ice: "#e8feff",
+        ghost: "#dbbaff",
+        dragon: "#c4bdff",
+        dark: "#a9abb0"
+    };
+
+    const greyBack = {
+        backgroundColor: "grey"
+    }
 
     const [name, setName] = useContext(userContext)
     const [companion, setCompanion] = useState("")
@@ -38,13 +63,16 @@ const Home = ({ pokeObj, idPoke=[] }) => {
     return (
         <div className="pc-container">
             <div className="pokemon-card">
-                 <div className={idPoke.includes(pokeObj.id) ? `card_front2 pokemon-container` : `card_front pokemon-container`}>
+                <div className = "card_front pokemon-container" style={(pokeObj.types.length == 2)  && idPoke.includes(pokeObj.id) 
+                    ? {background: "linear-gradient(150deg,"+colors[pokemonTypes[0]]+" 50%," +colors[pokemonTypes[1]] +" 50%)"} 
+                    : idPoke.includes(pokeObj.id) ? {background: colors[pokemonTypes]} 
+                    : {background: "grey"}}>
                     <img src={spriteUrl}></img>
                     <div className="circle"></div>
                     <h5 className="poke-id"> #{pokeObj.id} </h5>
                     <h5 className="poke-name"> {idPoke.includes(pokeObj.id) ? pokeObj.name.replace(/\w/, (ch) => ch.toUpperCase()) : `???????`} </h5>
                     <h5> {idPoke.includes(pokeObj.id) ? pokemonTypes.join(" / ").replace(/\b\w/g, (ch) => ch.toUpperCase()) : `???????`} </h5>
-                </div>
+                </div>     
                 <div className="card_back">
                     <div className="poke-stats-name">HP: {pokeObj.stats[0].base_stat}</div>
                     <div className="poke-stats-name">Attack: {pokeObj.stats[1].base_stat}</div>
@@ -59,4 +87,4 @@ const Home = ({ pokeObj, idPoke=[] }) => {
     );
 }
 
-export default Home;
+export default Card;
