@@ -241,3 +241,11 @@ button {
 	margin-bottom: -6%;
 	margin-right: 3%;
 }
+
+.bsicon{
+	font-size: 23px;
+	margin-bottom: 5px;
+	margin-right: -5px;
+	margin-left: 12px;
+	color: #2f3035a1;
+}

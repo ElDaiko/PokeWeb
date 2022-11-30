@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { TbPokeball } from 'react-icons/tb';
+import {BsFillPersonCheckFill, BsFillPersonDashFill} from 'react-icons/bs';
 import pokedex from '../img/pokedex.png'
 import { useContext } from 'react';
 import { userContext } from './context/userContext';
@@ -25,6 +26,9 @@ const Navbar = () => {
                         </li>
                         {name ?
                             <>
+                                <li>
+                                    <p className="bsicon"><BsFillPersonCheckFill/></p>
+                                </li>
                                 <li className='navmargin Link'>
                                     <h2 className="nav-link navMargin">{name}</h2>
                                 </li>
@@ -33,9 +37,15 @@ const Navbar = () => {
                                 </Link>
                             </>
                             :
+                            <>
+                            <li>
+                                <p className="bsicon"><BsFillPersonDashFill/></p>
+                            </li>
                             <Link to="/signin" className='navmargin'>
                                 <h2 className="nav-link navMargin">Sign in</h2>
                             </Link>
+                            </>
+                            
                         }
                     </ul>
                     <ul className="navbar-nav">

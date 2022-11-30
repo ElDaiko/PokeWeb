@@ -55,8 +55,6 @@ const Search = () => {
             {poke.id ? <Card pokeObj={poke} key={poke.id} idPoke={idPoke}/> : null}
         </div>
         </>
-        
-
     );
 }
 
