@@ -5,8 +5,11 @@ import { useContext, useEffect,useState } from 'react';
 import { userContext } from './context/userContext';
 import axios from 'axios';
 import {useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ pokeObj, idPoke=[] }) => {
+
+    const navigate = useNavigate()
 
     const colors = {
         grass: "#d2f2c2",
@@ -80,7 +83,7 @@ const Card = ({ pokeObj, idPoke=[] }) => {
                     <div className="poke-stats-name">Special-Attack: {pokeObj.stats[3].base_stat}</div>
                     <div className="poke-stats-name">Special-Defense: {pokeObj.stats[4].base_stat}</div>
                     <div className="poke-stats-name">Speed: {pokeObj.stats[5].base_stat}</div>
-                    {location.pathname!=="/pokedex" ? <button onClick={() => addCompanion(pokeObj.id, name)} className="poke-img"><img src={ball}/></button> : <></>}
+                    {location.pathname!=="/pokedex" ? <button onClick={() => (addCompanion(pokeObj.id, name),alert(`You have captured ${pokeObj.name}`))} className="poke-img"><img src={ball}/></button> : <></>}
                 </div>
             </div>
         </div>

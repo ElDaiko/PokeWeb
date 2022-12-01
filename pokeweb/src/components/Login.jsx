@@ -91,7 +91,7 @@ const Login = () => {
                 {name && password != "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> : console.log(typeof name)}
             </div>
             <div>
-                <h1 className="poke-style">Bienvenido a Pokeweb!</h1>
+                <h1 className="poke-style">Welcome to PokeWeb!</h1>
             </div>
         </>
     );
