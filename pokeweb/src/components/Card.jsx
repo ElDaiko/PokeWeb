@@ -69,7 +69,7 @@ const Card = ({ pokeObj, idPoke=[] }) => {
                     : {background: "grey"}}>
                     <img src={spriteUrl}></img>
                     <div className="circle"></div>
-                    <h5 className="poke-id"> #{pokeObj.id} </h5>
+                    <h5 className="poke-id"> #{idPoke.includes(pokeObj.id) ? pokeObj.id : '?'} </h5>
                     <h5 className="poke-name"> {idPoke.includes(pokeObj.id) ? pokeObj.name.replace(/\w/, (ch) => ch.toUpperCase()) : `???????`} </h5>
                     <h5> {idPoke.includes(pokeObj.id) ? pokemonTypes.join(" / ").replace(/\b\w/g, (ch) => ch.toUpperCase()) : `???????`} </h5>
                 </div>     

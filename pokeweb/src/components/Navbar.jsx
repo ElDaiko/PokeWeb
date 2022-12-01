@@ -32,8 +32,8 @@ const Navbar = () => {
                                 <li className='navmargin Link'>
                                     <h2 className="nav-link navMargin">{name}</h2>
                                 </li>
-                                <Link className='navmargin'>
-                                    <h2 onClick={() => setName("")} className="nav-link navMargin">LogOut</h2>
+                                <Link to="/" className='navmargin'>
+                                    <h2 onClick={() => setName("") } className="nav-link navMargin">LogOut</h2>
                                 </Link>
                             </>
                             :

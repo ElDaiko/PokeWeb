@@ -12,6 +12,7 @@ const Login = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [login, setLogin] = useState("")
+    const [error, setError] = useState(null)
 
     const handleChangeName = e => {
         setName(e.target.value);
@@ -59,9 +60,14 @@ const Login = () => {
             setUser(name)
             navigate("/pokedex", {replace:true})
         }
+        else{
+            alert("Credential error")
+            setLogin("")
+        }
+        
     }
-
     
+
     return (
         <>
             <div className="log-container">
@@ -82,7 +88,7 @@ const Login = () => {
                         <button className="btn btn-primary btnlog">Login</button>
                     </div>
                 </form>
-                <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button>
+                {name && password != "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> : console.log(typeof name)}
             </div>
             <div>
                 <h1 className="poke-style">Bienvenido a Pokeweb!</h1>
