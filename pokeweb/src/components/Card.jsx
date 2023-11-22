@@ -49,20 +49,17 @@ const Card = ({ pokeObj, idPoke=[] }) => {
     const addCompanion = async (idPokemon, emailUser) => {
 
         const body = {
-            emailUser: emailUser,
+            userEmail: emailUser,
             idPokemon: idPokemon
         }
 
-        const url = `http://localhost:5103/api/PokeWeb/api/registrarCompanion`
+        const url = `http://localhost:8080/registerCompanion`
         const respuesta = await axios.post(url, body)
         
         setCompanion(respuesta);
     }
 
     const location = useLocation()
-
-    /* console.log(location.pathname); */
-
     return (
         <div className="pc-container">
             <div className="pokemon-card">

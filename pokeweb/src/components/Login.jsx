@@ -23,13 +23,12 @@ const Login = () => {
     }
 
     const confirmUser = async (name, password) => {
-
         const body = {
-            emailUser: name,
-            userPassword: password
+            email: name,
+            password: password
         }
 
-        const url = `http://localhost:5103/api/PokeWeb/api/confirmarUsuario`
+        const url = `http://localhost:8080/signInUser`
         const respuesta = await axios.post(url, body)
         
         setLogin(respuesta);
@@ -38,11 +37,12 @@ const Login = () => {
     const registerUser = async (name, password) => {
 
         const body = {
-            emailUser: name,
-            userPassword: password
+            username: "username",
+            email: name,
+            password: password
         }
 
-        const url = `http://localhost:5103/api/PokeWeb/api/registrarUsuario`
+        const url = `http://localhost:8080/registerUser`
         const respuesta = await axios.post(url, body)
         
         setLogin(respuesta);

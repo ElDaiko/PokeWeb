@@ -11,13 +11,12 @@ const UsePoke = (emailUser) => {
     const requestCompanion = async (emailUser) => {
 
         const body = {
-            emailUser
+            userEmail: emailUser
         }
-
-        const url = `http://localhost:5103/api/PokeWeb/api/requestCompanion`
-        const respuesta = await axios.post(url, body)
         
-        setIdPoke(respuesta.data.idCompanion);
+        const url = `http://localhost:8080/getCompanions`
+        const respuesta = await axios.post(url, body)
+        setIdPoke(respuesta.data.idPokemon);
     }
         
     return (
