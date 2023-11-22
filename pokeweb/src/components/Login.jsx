@@ -36,8 +36,7 @@ const Login = () => {
 
     const registerUser = async (name, password) => {
 
-        const user = name.split("@")
-        console.log(user[0]);
+        let user = name.split("@")
 
         const body = {
             username: user[0],

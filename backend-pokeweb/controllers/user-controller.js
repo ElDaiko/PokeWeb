@@ -1,14 +1,9 @@
 'use strict'
 
 const Users = require('../models/user');
-const token = require('../helpers/token');
 const bcrypt = require('bcryptjs')
 
-const test = (req, resp) => {
-    resp.status(200).send({message: "User is Logged in"});
-}
-
-function registerUser(req, resp){
+function registerUser(req, res){
     const newUser = new Users()
     const body = req.body
 
@@ -21,15 +16,15 @@ function registerUser(req, resp){
 
     newUser.save().then(
         () => {
-            resp.status(200).send({confirmation: true})
+            res.status(200).send({confirmation: true})
         },
         err => {
-            resp.status(500).send({message: "Could not create the User"})
+            res.status(500).send({message: "Could not create the User", err})
         }
     )
 }
 
-function signInUser(req, resp){
+function signInUser(req, res){
     const body = req.body
 
     const sentEmail = body.email
@@ -38,23 +33,23 @@ function signInUser(req, resp){
     Users.findOne({email:sentEmail}).then(
         (foundUser) => {
             if(foundUser == null){
-                resp.status(403).send({message: "User doesnt exist."})
+                res.status(403).send({message: "User doesnt exist."})
             }
             else{
                 if(bcrypt.compareSync(sentPassword, foundUser.password)){
-                    resp.status(200).send({confirmation: true})
+                    res.status(200).send({confirmation: true})
                 }
                 else{
-                    resp.status(403).send({message: "Invalid Password."})
+                    res.status(403).send({message: "Invalid Password."})
                 }
             }
         },
         err => {
-            resp.status(500).send({message: "Could not found User."})
+            res.status(500).send({message: "Could not found User.", err})
         }
     )
 }
 
 module.exports={
-    test, registerUser, signInUser
+    registerUser, signInUser
 }
