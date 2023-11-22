@@ -36,8 +36,11 @@ const Login = () => {
 
     const registerUser = async (name, password) => {
 
+        const user = name.split("@")
+        console.log(user[0]);
+
         const body = {
-            username: "username",
+            username: user[0],
             email: name,
             password: password
         }
@@ -88,7 +91,8 @@ const Login = () => {
                         <button className="btn btn-primary btnlog">Login</button>
                     </div>
                 </form>
-                {name && password != "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> : console.log(typeof name)}
+                {name && password != "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> 
+                : <div></div>}
             </div>
             <div>
                 <h1 className="poke-style">Welcome to PokeWeb!</h1>
