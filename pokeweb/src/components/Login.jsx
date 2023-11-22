@@ -12,7 +12,6 @@ const Login = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [login, setLogin] = useState("")
-    const [error, setError] = useState(null)
 
     const handleChangeName = e => {
         setName(e.target.value);
@@ -57,10 +56,11 @@ const Login = () => {
     }
     
 
-    if (login != ""){
-        if (login.data.confirmation == true) {
+    if (login !== ""){
+        if (login.data.confirmation === true) {
             setUser(name)
             navigate("/pokedex", {replace:true})
+            console.log(user)
         }
         else{
             alert("Credential error")
@@ -90,7 +90,7 @@ const Login = () => {
                         <button className="btn btn-primary btnlog">Login</button>
                     </div>
                 </form>
-                {name && password != "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> 
+                {name && password !== "" ? <button className="btn btn-primary search-container btnregist" onClick={() => registerUser(name, password)}>Register</button> 
                 : <div></div>}
             </div>
             <div>
